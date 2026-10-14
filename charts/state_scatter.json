@@ -1,0 +1,231 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Interactive view of participation, places or volunteering in Australian community sport.",
+  "width": "container",
+  "height": 340,
+  "background": "transparent",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "config": {
+    "font": "DM Sans",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 500,
+      "labelColor": "#56645d",
+      "titleColor": "#56645d",
+      "domain": false,
+      "tickColor": "#d9dfd7",
+      "gridColor": "#e5e8df",
+      "labelPadding": 8,
+      "titlePadding": 14
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "title": null,
+      "orient": "bottom",
+      "labelLimit": 190
+    },
+    "range": {
+      "category": [
+        "#216052",
+        "#c38b32",
+        "#80618c",
+        "#9fbc54",
+        "#6e98ac",
+        "#b37565"
+      ]
+    }
+  },
+  "usermeta": {
+    "data_status": "synthetic",
+    "beta": true
+  },
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {
+            "national_rate": 22.4
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          5,
+          4
+        ],
+        "color": "#9aa598"
+      },
+      "encoding": {
+        "x": {
+          "field": "national_rate",
+          "type": "quantitative",
+          "title": null
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "national_volunteer": 11.9
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          5,
+          4
+        ],
+        "color": "#9aa598"
+      },
+      "encoding": {
+        "y": {
+          "field": "national_volunteer",
+          "type": "quantitative",
+          "title": null
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/state_volunteering.csv",
+        "format": {
+          "type": "csv"
+        }
+      },
+      "params": [
+        {
+          "name": "scatterPick",
+          "select": {
+            "type": "point",
+            "fields": [
+              "state"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "color": "#c38b32",
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "field": "club_rate",
+          "type": "quantitative",
+          "title": "Adults in club sport (%)",
+          "scale": {
+            "domain": [
+              18,
+              28
+            ]
+          },
+          "axis": {
+            "labelExpr": "datum.label + '%'",
+            "tickCount": 5
+          }
+        },
+        "y": {
+          "field": "volunteer_rate",
+          "type": "quantitative",
+          "title": "Adults volunteering (%)",
+          "scale": {
+            "domain": [
+              9,
+              16
+            ]
+          },
+          "axis": {
+            "labelExpr": "datum.label + '%'",
+            "tickCount": 5
+          }
+        },
+        "size": {
+          "field": "population",
+          "type": "quantitative",
+          "title": null,
+          "scale": {
+            "range": [
+              90,
+              1400
+            ]
+          },
+          "legend": null
+        },
+        "opacity": {
+          "condition": {
+            "param": "scatterPick",
+            "value": 0.9
+          },
+          "value": 0.25
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State / territory"
+          },
+          {
+            "field": "club_rate",
+            "type": "quantitative",
+            "title": "Club participation (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "volunteer_rate",
+            "type": "quantitative",
+            "title": "Volunteering (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "population",
+            "type": "quantitative",
+            "title": "Population",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/state_volunteering.csv",
+        "format": {
+          "type": "csv"
+        }
+      },
+      "mark": {
+        "type": "text",
+        "dy": -19,
+        "fontSize": 11,
+        "color": "#233c34"
+      },
+      "encoding": {
+        "x": {
+          "field": "club_rate",
+          "type": "quantitative",
+          "title": null
+        },
+        "y": {
+          "field": "volunteer_rate",
+          "type": "quantitative",
+          "title": null
+        },
+        "text": {
+          "field": "code",
+          "type": "nominal",
+          "title": null
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Interactive view of participation, places or volunteering in Australian community sport.",
+  "width": "container",
+  "height": 145,
+  "background": "transparent",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "config": {
+    "font": "DM Sans",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 500,
+      "labelColor": "#56645d",
+      "titleColor": "#56645d",
+      "domain": false,
+      "tickColor": "#d9dfd7",
+      "gridColor": "#e5e8df",
+      "labelPadding": 8,
+      "titlePadding": 14
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "title": null,
+      "orient": "bottom",
+      "labelLimit": 190
+    },
+    "range": {
+      "category": [
+        "#216052",
+        "#c38b32",
+        "#80618c",
+        "#9fbc54",
+        "#6e98ac",
+        "#b37565"
+      ]
+    }
+  },
+  "usermeta": {
+    "data_status": "synthetic",
+    "beta": true
+  },
+  "data": {
+    "url": "data/participation_summary.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "height": 58,
+        "cornerRadius": 2
+      },
+      "encoding": {
+        "y": {
+          "field": "cohort",
+          "type": "nominal",
+          "title": null,
+          "axis": null
+        },
+        "x": {
+          "field": "rate",
+          "type": "quantitative",
+          "title": "Share of active adults",
+          "stack": "normalize",
+          "axis": {
+            "format": ".0%",
+            "tickCount": 5
+          }
+        },
+        "color": {
+          "field": "category",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              "Informal only",
+              "Informal + organised",
+              "Organised only"
+            ],
+            "range": [
+              "#bfcbb8",
+              "#216052",
+              "#c38b32"
+            ]
+          }
+        },
+        "order": {
+          "field": "order",
+          "type": "quantitative",
+          "title": null
+        },
+        "tooltip": [
+          {
+            "field": "category",
+            "type": "nominal",
+            "title": "Activity type"
+          },
+          {
+            "field": "rate",
+            "type": "quantitative",
+            "title": "Share (%)",
+            "format": ".0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "color": "white",
+        "fontWeight": "bold",
+        "fontSize": 15
+      },
+      "encoding": {
+        "y": {
+          "field": "cohort",
+          "type": "nominal",
+          "title": null
+        },
+        "x": {
+          "field": "rate",
+          "type": "quantitative",
+          "title": null,
+          "stack": "normalize",
+          "bandPosition": 0.5
+        },
+        "detail": {
+          "field": "category",
+          "type": "nominal",
+          "title": null
+        },
+        "order": {
+          "field": "order",
+          "type": "quantitative",
+          "title": null
+        },
+        "text": {
+          "field": "rate",
+          "type": "quantitative",
+          "format": ".0f"
+        }
+      }
+    }
+  ]
+}

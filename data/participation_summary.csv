@@ -1,0 +1,4 @@
+cohort,category,rate,order,data_status
+Active adults,Informal only,49,0,Synthetic beta data
+Active adults,Informal + organised,33,1,Synthetic beta data
+Active adults,Organised only,18,2,Synthetic beta data

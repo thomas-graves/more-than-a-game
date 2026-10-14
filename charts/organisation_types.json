@@ -1,0 +1,141 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Interactive view of participation, places or volunteering in Australian community sport.",
+  "width": "container",
+  "height": 290,
+  "background": "transparent",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "config": {
+    "font": "DM Sans",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 500,
+      "labelColor": "#56645d",
+      "titleColor": "#56645d",
+      "domain": false,
+      "tickColor": "#d9dfd7",
+      "gridColor": "#e5e8df",
+      "labelPadding": 8,
+      "titlePadding": 14
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "title": null,
+      "orient": "bottom",
+      "labelLimit": 190
+    },
+    "range": {
+      "category": [
+        "#216052",
+        "#c38b32",
+        "#80618c",
+        "#9fbc54",
+        "#6e98ac",
+        "#b37565"
+      ]
+    }
+  },
+  "usermeta": {
+    "data_status": "synthetic",
+    "beta": true
+  },
+  "data": {
+    "url": "data/organisation_types.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "encoding": {
+    "y": {
+      "field": "organisation",
+      "type": "nominal",
+      "title": null,
+      "sort": "-x",
+      "axis": {
+        "labelLimit": 190,
+        "ticks": false
+      }
+    },
+    "x": {
+      "field": "rate",
+      "type": "quantitative",
+      "title": "Adults participating (%)",
+      "axis": {
+        "labelExpr": "datum.label + '%'",
+        "tickCount": 5
+      },
+      "scale": {
+        "domain": [
+          0,
+          30
+        ]
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 2,
+        "color": "#ccd6c7"
+      },
+      "encoding": {
+        "x2": {
+          "datum": 0
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 115,
+        "opacity": 1
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "datum.organisation === 'Sports club / association'",
+            "value": "#216052"
+          },
+          "value": "#a9b9a2"
+        },
+        "tooltip": [
+          {
+            "field": "organisation",
+            "type": "nominal",
+            "title": "Organiser"
+          },
+          {
+            "field": "rate",
+            "type": "quantitative",
+            "title": "Adults (%)",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "fontSize": 12,
+        "color": "#233c34"
+      },
+      "encoding": {
+        "text": {
+          "field": "rate",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    }
+  ]
+}

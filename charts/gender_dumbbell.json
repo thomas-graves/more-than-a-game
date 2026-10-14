@@ -1,0 +1,180 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Interactive view of participation, places or volunteering in Australian community sport.",
+  "width": "container",
+  "height": 370,
+  "background": "transparent",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "config": {
+    "font": "DM Sans",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 500,
+      "labelColor": "#56645d",
+      "titleColor": "#56645d",
+      "domain": false,
+      "tickColor": "#d9dfd7",
+      "gridColor": "#e5e8df",
+      "labelPadding": 8,
+      "titlePadding": 14
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "title": null,
+      "orient": "bottom",
+      "labelLimit": 190
+    },
+    "range": {
+      "category": [
+        "#216052",
+        "#c38b32",
+        "#80618c",
+        "#9fbc54",
+        "#6e98ac",
+        "#b37565"
+      ]
+    }
+  },
+  "usermeta": {
+    "data_status": "synthetic",
+    "beta": true
+  },
+  "data": {
+    "url": "data/gender_sport.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "encoding": {
+    "y": {
+      "field": "sport",
+      "type": "nominal",
+      "title": null,
+      "sort": {
+        "field": "gap",
+        "order": "descending"
+      },
+      "axis": {
+        "labelLimit": 150,
+        "ticks": false
+      }
+    },
+    "x": {
+      "field": "male",
+      "type": "quantitative",
+      "title": "Organised participation (%)",
+      "scale": {
+        "domain": [
+          0,
+          8
+        ]
+      },
+      "axis": {
+        "labelExpr": "datum.label + '%'",
+        "tickCount": 5
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 2,
+        "color": "#cfd6ca"
+      },
+      "encoding": {
+        "x2": {
+          "field": "female"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "fold": [
+            "male",
+            "female"
+          ],
+          "as": [
+            "gender",
+            "rate"
+          ]
+        },
+        {
+          "calculate": "datum.gender === 'male' ? 'Male' : 'Female'",
+          "as": "gender_label"
+        }
+      ],
+      "params": [
+        {
+          "name": "genderHighlight",
+          "select": {
+            "type": "point",
+            "fields": [
+              "gender_label"
+            ]
+          },
+          "bind": "legend"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 110
+      },
+      "encoding": {
+        "x": {
+          "field": "rate",
+          "type": "quantitative",
+          "title": "Organised participation (%)"
+        },
+        "color": {
+          "field": "gender_label",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              "Male",
+              "Female"
+            ],
+            "range": [
+              "#216052",
+              "#80618c"
+            ]
+          }
+        },
+        "opacity": {
+          "condition": {
+            "param": "genderHighlight",
+            "value": 1
+          },
+          "value": 0.2
+        },
+        "tooltip": [
+          {
+            "field": "sport",
+            "type": "nominal",
+            "title": "Sport"
+          },
+          {
+            "field": "gender_label",
+            "type": "nominal",
+            "title": "Gender"
+          },
+          {
+            "field": "rate",
+            "type": "quantitative",
+            "title": "Participation (%)",
+            "format": ".1f"
+          }
+        ]
+      }
+    }
+  ]
+}

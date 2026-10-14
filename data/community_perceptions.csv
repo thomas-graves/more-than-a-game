@@ -1,0 +1,26 @@
+statement,response,rate,order,start,end,data_status
+Strengthens communities,Strongly disagree,2,0,-11.5,-9.5,Synthetic beta data
+Strengthens communities,Disagree,4,1,-9.5,-5.5,Synthetic beta data
+Strengthens communities,Neutral,11,2,-5.5,5.5,Synthetic beta data
+Strengthens communities,Agree,42,3,5.5,47.5,Synthetic beta data
+Strengthens communities,Strongly agree,41,4,47.5,88.5,Synthetic beta data
+Supports wellbeing,Strongly disagree,2,0,-10.0,-8.0,Synthetic beta data
+Supports wellbeing,Disagree,3,1,-8.0,-5.0,Synthetic beta data
+Supports wellbeing,Neutral,10,2,-5.0,5.0,Synthetic beta data
+Supports wellbeing,Agree,39,3,5.0,44.0,Synthetic beta data
+Supports wellbeing,Strongly agree,46,4,44.0,90.0,Synthetic beta data
+Creates a sense of belonging,Strongly disagree,3,0,-15.0,-12.0,Synthetic beta data
+Creates a sense of belonging,Disagree,5,1,-12.0,-7.0,Synthetic beta data
+Creates a sense of belonging,Neutral,14,2,-7.0,7.0,Synthetic beta data
+Creates a sense of belonging,Agree,43,3,7.0,50.0,Synthetic beta data
+Creates a sense of belonging,Strongly agree,35,4,50.0,85.0,Synthetic beta data
+Welcomes different backgrounds,Strongly disagree,4,0,-22.5,-18.5,Synthetic beta data
+Welcomes different backgrounds,Disagree,8,1,-18.5,-10.5,Synthetic beta data
+Welcomes different backgrounds,Neutral,21,2,-10.5,10.5,Synthetic beta data
+Welcomes different backgrounds,Agree,40,3,10.5,50.5,Synthetic beta data
+Welcomes different backgrounds,Strongly agree,27,4,50.5,77.5,Synthetic beta data
+Values its volunteers,Strongly disagree,4,0,-22.5,-18.5,Synthetic beta data
+Values its volunteers,Disagree,7,1,-18.5,-11.5,Synthetic beta data
+Values its volunteers,Neutral,23,2,-11.5,11.5,Synthetic beta data
+Values its volunteers,Agree,40,3,11.5,51.5,Synthetic beta data
+Values its volunteers,Strongly agree,26,4,51.5,77.5,Synthetic beta data

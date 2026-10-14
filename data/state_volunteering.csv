@@ -1,0 +1,9 @@
+state,code,club_rate,volunteer_rate,population,data_status
+New South Wales,NSW,21.4,11.0,8600000,Synthetic beta data
+Victoria,VIC,24.1,12.8,7000000,Synthetic beta data
+Queensland,QLD,20.8,11.2,5700000,Synthetic beta data
+South Australia,SA,23.5,13.2,1900000,Synthetic beta data
+Western Australia,WA,23.2,12.5,3000000,Synthetic beta data
+Tasmania,TAS,22.8,13.5,580000,Synthetic beta data
+Northern Territory,NT,19.3,10.6,270000,Synthetic beta data
+Australian Capital Territory,ACT,26.2,14.8,490000,Synthetic beta data

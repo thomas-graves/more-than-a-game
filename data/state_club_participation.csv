@@ -1,0 +1,9 @@
+state,code,population,adult_population,club_rate,male_rate,female_rate,estimated_participants,volunteer_rate,longitude,latitude,national_rate,national_volunteer,data_status
+New South Wales,NSW,8600000,6880000,21.4,24.2,18.7,1472320,11.0,147.1,-32.3,22.4,11.9,Synthetic beta data
+Victoria,VIC,7000000,5600000,24.1,27.1,21.2,1349600,12.8,144.2,-36.6,22.4,11.9,Synthetic beta data
+Queensland,QLD,5700000,4560000,20.8,23.6,18.1,948480,11.2,144.6,-22.0,22.4,11.9,Synthetic beta data
+South Australia,SA,1900000,1520000,23.5,26.1,21.0,357200,13.2,134.8,-30.0,22.4,11.9,Synthetic beta data
+Western Australia,WA,3000000,2400000,23.2,26.0,20.5,556800,12.5,122.4,-25.0,22.4,11.9,Synthetic beta data
+Tasmania,TAS,580000,464000,22.8,25.3,20.4,105792,13.5,146.7,-42.0,22.4,11.9,Synthetic beta data
+Northern Territory,NT,270000,216000,19.3,22.8,15.9,41688,10.6,133.4,-19.6,22.4,11.9,Synthetic beta data
+Australian Capital Territory,ACT,490000,392000,26.2,28.6,23.9,102704,14.8,149.1,-35.5,22.4,11.9,Synthetic beta data

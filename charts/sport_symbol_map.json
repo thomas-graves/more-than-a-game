@@ -1,0 +1,214 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Interactive view of participation, places or volunteering in Australian community sport.",
+  "width": "container",
+  "height": 460,
+  "background": "transparent",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "config": {
+    "font": "DM Sans",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 500,
+      "labelColor": "#56645d",
+      "titleColor": "#56645d",
+      "domain": false,
+      "tickColor": "#d9dfd7",
+      "gridColor": "#e5e8df",
+      "labelPadding": 8,
+      "titlePadding": 14
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "title": null,
+      "orient": "bottom",
+      "labelLimit": 190
+    },
+    "range": {
+      "category": [
+        "#216052",
+        "#c38b32",
+        "#80618c",
+        "#9fbc54",
+        "#6e98ac",
+        "#b37565"
+      ]
+    }
+  },
+  "usermeta": {
+    "data_status": "synthetic",
+    "beta": true
+  },
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -134,
+      0,
+      0
+    ],
+    "center": [
+      0,
+      -28
+    ]
+  },
+  "params": [
+    {
+      "name": "selectedSport",
+      "value": "Australian football",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Football / soccer",
+          "Basketball",
+          "Tennis",
+          "Golf",
+          "Cricket",
+          "Australian football",
+          "Netball",
+          "Swimming",
+          "Rugby league",
+          "Volleyball"
+        ],
+        "name": "Sport: "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e6eadf",
+        "stroke": "white",
+        "strokeWidth": 1.2
+      }
+    },
+    {
+      "data": {
+        "url": "data/sport_by_state.csv",
+        "format": {
+          "type": "csv"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.sport === selectedSport"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "color": "#216052",
+        "stroke": "#fffdf6",
+        "strokeWidth": 1.4,
+        "opacity": 0.7
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative",
+          "title": null
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative",
+          "title": null
+        },
+        "size": {
+          "field": "estimated_participants",
+          "type": "quantitative",
+          "title": "Estimated participants",
+          "scale": {
+            "domain": [
+              0,
+              302720
+            ],
+            "range": [
+              0,
+              4000
+            ]
+          },
+          "legend": {
+            "format": "~s",
+            "values": [
+              10000,
+              100000,
+              250000
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State / territory"
+          },
+          {
+            "field": "sport",
+            "type": "nominal",
+            "title": "Sport"
+          },
+          {
+            "field": "estimated_participants",
+            "type": "quantitative",
+            "title": "Estimated participants",
+            "format": ",.0f"
+          },
+          {
+            "field": "rate",
+            "type": "quantitative",
+            "title": "Adult club rate (%)",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/state_club_participation.csv",
+        "format": {
+          "type": "csv"
+        }
+      },
+      "mark": {
+        "type": "text",
+        "dy": -5,
+        "fontSize": 10,
+        "color": "#233c34"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative",
+          "title": null
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative",
+          "title": null
+        },
+        "text": {
+          "field": "code",
+          "type": "nominal",
+          "title": null
+        }
+      }
+    }
+  ]
+}

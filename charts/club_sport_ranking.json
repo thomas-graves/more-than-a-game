@@ -1,0 +1,133 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Interactive view of participation, places or volunteering in Australian community sport.",
+  "width": "container",
+  "height": 360,
+  "background": "transparent",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "config": {
+    "font": "DM Sans",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 500,
+      "labelColor": "#56645d",
+      "titleColor": "#56645d",
+      "domain": false,
+      "tickColor": "#d9dfd7",
+      "gridColor": "#e5e8df",
+      "labelPadding": 8,
+      "titlePadding": 14
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "title": null,
+      "orient": "bottom",
+      "labelLimit": 190
+    },
+    "range": {
+      "category": [
+        "#216052",
+        "#c38b32",
+        "#80618c",
+        "#9fbc54",
+        "#6e98ac",
+        "#b37565"
+      ]
+    }
+  },
+  "usermeta": {
+    "data_status": "synthetic",
+    "beta": true
+  },
+  "data": {
+    "url": "data/club_sports.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "params": [
+    {
+      "name": "cohort",
+      "value": "Adults (15+)",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Adults (15+)",
+          "Children (0-14)"
+        ],
+        "name": "Age group: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.cohort === cohort"
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 3,
+    "color": "#216052",
+    "height": {
+      "band": 0.67
+    }
+  },
+  "encoding": {
+    "y": {
+      "field": "sport",
+      "type": "nominal",
+      "title": null,
+      "sort": "-x",
+      "axis": {
+        "labelLimit": 160,
+        "ticks": false
+      }
+    },
+    "x": {
+      "field": "rate",
+      "type": "quantitative",
+      "title": "Club-organised participation (%)",
+      "axis": {
+        "labelExpr": "datum.label + '%'",
+        "tickCount": 5
+      },
+      "scale": {
+        "domain": [
+          0,
+          15
+        ]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "sport",
+        "type": "nominal",
+        "title": "Sport"
+      },
+      {
+        "field": "cohort",
+        "type": "nominal",
+        "title": "Group"
+      },
+      {
+        "field": "rate",
+        "type": "quantitative",
+        "title": "Participation (%)",
+        "format": ".1f"
+      },
+      {
+        "field": "estimated_participants",
+        "type": "quantitative",
+        "title": "Estimated participants",
+        "format": ",.0f"
+      }
+    ]
+  }
+}

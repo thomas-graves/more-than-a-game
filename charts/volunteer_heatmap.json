@@ -1,0 +1,131 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Interactive view of participation, places or volunteering in Australian community sport.",
+  "width": "container",
+  "height": 330,
+  "background": "transparent",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "config": {
+    "font": "DM Sans",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 500,
+      "labelColor": "#56645d",
+      "titleColor": "#56645d",
+      "domain": false,
+      "tickColor": "#d9dfd7",
+      "gridColor": "#e5e8df",
+      "labelPadding": 8,
+      "titlePadding": 14
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "title": null,
+      "orient": "bottom",
+      "labelLimit": 190
+    },
+    "range": {
+      "category": [
+        "#216052",
+        "#c38b32",
+        "#80618c",
+        "#9fbc54",
+        "#6e98ac",
+        "#b37565"
+      ]
+    }
+  },
+  "usermeta": {
+    "data_status": "synthetic",
+    "beta": true
+  },
+  "data": {
+    "url": "data/volunteer_roles.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "mark": {
+    "type": "rect",
+    "stroke": "#fffdf6",
+    "strokeWidth": 2,
+    "cornerRadius": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "age_group",
+      "type": "ordinal",
+      "sort": [
+        "15-24",
+        "25-34",
+        "35-44",
+        "45-54",
+        "55-64",
+        "65+"
+      ],
+      "title": "Age group (years)",
+      "axis": {
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "role",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Coach / instructor",
+        "Official / referee",
+        "Committee / administration",
+        "Team manager",
+        "General assistance",
+        "Driving participants",
+        "Fundraising",
+        "Medical / safety support"
+      ],
+      "axis": {
+        "labelLimit": 190,
+        "ticks": false
+      }
+    },
+    "color": {
+      "field": "rate",
+      "type": "quantitative",
+      "title": "Adults volunteering (%)",
+      "scale": {
+        "domain": [
+          0,
+          7
+        ],
+        "range": [
+          "#f6edda",
+          "#ba8029"
+        ]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "role",
+        "type": "nominal",
+        "title": "Volunteer role"
+      },
+      {
+        "field": "age_group",
+        "type": "nominal",
+        "title": "Age group"
+      },
+      {
+        "field": "rate",
+        "type": "quantitative",
+        "title": "Adults in age group (%)",
+        "format": ".1f"
+      }
+    ]
+  }
+}

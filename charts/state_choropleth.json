@@ -1,0 +1,256 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Interactive view of participation, places or volunteering in Australian community sport.",
+  "background": "transparent",
+  "config": {
+    "font": "DM Sans",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 500,
+      "labelColor": "#56645d",
+      "titleColor": "#56645d",
+      "domain": false,
+      "tickColor": "#d9dfd7",
+      "gridColor": "#e5e8df",
+      "labelPadding": 8,
+      "titlePadding": 14
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "title": null,
+      "orient": "bottom",
+      "labelLimit": 190
+    },
+    "range": {
+      "category": [
+        "#216052",
+        "#c38b32",
+        "#80618c",
+        "#9fbc54",
+        "#6e98ac",
+        "#b37565"
+      ]
+    }
+  },
+  "usermeta": {
+    "data_status": "synthetic",
+    "beta": true
+  },
+  "params": [
+    {
+      "name": "demographic",
+      "value": "All adults",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All adults",
+          "Male",
+          "Female"
+        ],
+        "name": "Show: "
+      }
+    }
+  ],
+  "vconcat": [
+    {
+      "width": "container",
+      "height": 430,
+      "projection": {
+        "type": "conicEqualArea",
+        "parallels": [
+          -18,
+          -36
+        ],
+        "rotate": [
+          -134,
+          0,
+          0
+        ],
+        "center": [
+          0,
+          -28
+        ]
+      },
+      "data": {
+        "url": "data/australia_states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "calculate": "datum.properties.state",
+          "as": "state"
+        },
+        {
+          "lookup": "state",
+          "from": {
+            "data": {
+              "url": "data/state_club_participation.csv",
+              "format": {
+                "type": "csv"
+              }
+            },
+            "key": "state",
+            "fields": [
+              "club_rate",
+              "male_rate",
+              "female_rate",
+              "population",
+              "data_status"
+            ]
+          }
+        },
+        {
+          "calculate": "demographic === 'Male' ? datum.male_rate : demographic === 'Female' ? datum.female_rate : datum.club_rate",
+          "as": "selected_rate"
+        }
+      ],
+      "params": [
+        {
+          "name": "stateSelect",
+          "select": {
+            "type": "point",
+            "fields": [
+              "state"
+            ],
+            "on": "click",
+            "clear": "dblclick"
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#fffdf6",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "color": {
+          "field": "selected_rate",
+          "type": "quantitative",
+          "title": "Adults (%)",
+          "scale": {
+            "domain": [
+              15,
+              30
+            ],
+            "range": [
+              "#e3ebd4",
+              "#175544"
+            ]
+          },
+          "legend": {
+            "format": ".0f"
+          }
+        },
+        "opacity": {
+          "condition": {
+            "param": "stateSelect",
+            "value": 1
+          },
+          "value": 0.35
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State / territory"
+          },
+          {
+            "field": "selected_rate",
+            "type": "quantitative",
+            "title": "Selected group (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "population",
+            "type": "quantitative",
+            "title": "Population",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "width": "container",
+      "height": 190,
+      "data": {
+        "url": "data/state_club_participation.csv",
+        "format": {
+          "type": "csv"
+        }
+      },
+      "transform": [
+        {
+          "calculate": "demographic === 'Male' ? datum.male_rate : demographic === 'Female' ? datum.female_rate : datum.club_rate",
+          "as": "selected_rate"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 110,
+        "color": "#216052"
+      },
+      "encoding": {
+        "x": {
+          "field": "selected_rate",
+          "type": "quantitative",
+          "title": "Participation in selected adult group (%)",
+          "axis": {
+            "labelExpr": "datum.label + '%'",
+            "tickCount": 5
+          },
+          "scale": {
+            "domain": [
+              15,
+              30
+            ]
+          }
+        },
+        "y": {
+          "field": "code",
+          "type": "nominal",
+          "title": null,
+          "sort": {
+            "field": "selected_rate",
+            "order": "descending"
+          },
+          "axis": {
+            "ticks": false
+          }
+        },
+        "opacity": {
+          "condition": {
+            "param": "stateSelect",
+            "value": 1
+          },
+          "value": 0.2
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State / territory"
+          },
+          {
+            "field": "selected_rate",
+            "type": "quantitative",
+            "title": "Participation (%)",
+            "format": ".1f"
+          }
+        ]
+      }
+    }
+  ],
+  "spacing": 10,
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  }
+}

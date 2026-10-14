@@ -1,0 +1,160 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Interactive view of participation, places or volunteering in Australian community sport.",
+  "width": "container",
+  "height": 350,
+  "background": "transparent",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "config": {
+    "font": "DM Sans",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 500,
+      "labelColor": "#56645d",
+      "titleColor": "#56645d",
+      "domain": false,
+      "tickColor": "#d9dfd7",
+      "gridColor": "#e5e8df",
+      "labelPadding": 8,
+      "titlePadding": 14
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "title": null,
+      "orient": "bottom",
+      "labelLimit": 190
+    },
+    "range": {
+      "category": [
+        "#216052",
+        "#c38b32",
+        "#80618c",
+        "#9fbc54",
+        "#6e98ac",
+        "#b37565"
+      ]
+    }
+  },
+  "usermeta": {
+    "data_status": "synthetic",
+    "beta": true
+  },
+  "data": {
+    "url": "data/age_sport.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "params": [
+    {
+      "name": "ageSport",
+      "value": "All sports"
+    }
+  ],
+  "transform": [
+    {
+      "filter": "ageSport === 'All sports' ? indexof(['Football / soccer','Tennis','Netball','Golf'], datum.sport) >= 0 : datum.sport === ageSport"
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "point": {
+      "filled": true,
+      "size": 65
+    },
+    "strokeWidth": 2.5
+  },
+  "encoding": {
+    "x": {
+      "field": "age_group",
+      "type": "ordinal",
+      "sort": [
+        "15-24",
+        "25-34",
+        "35-44",
+        "45-54",
+        "55-64",
+        "65+"
+      ],
+      "title": "Age group (years)",
+      "axis": {
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "rate",
+      "type": "quantitative",
+      "title": "Organised participation (%)",
+      "scale": {
+        "domain": [
+          0,
+          10
+        ]
+      },
+      "axis": {
+        "labelExpr": "datum.label + '%'",
+        "tickCount": 5
+      }
+    },
+    "color": {
+      "field": "sport",
+      "type": "nominal",
+      "title": null,
+      "scale": {
+        "domain": [
+          "Football / soccer",
+          "Basketball",
+          "Tennis",
+          "Golf",
+          "Cricket",
+          "Australian football",
+          "Netball",
+          "Swimming",
+          "Rugby league",
+          "Volleyball"
+        ],
+        "range": [
+          "#216052",
+          "#c38b32",
+          "#80618c",
+          "#779343",
+          "#b56e54",
+          "#5a91a7",
+          "#8b647c",
+          "#888b52",
+          "#ae9054",
+          "#628c86"
+        ]
+      },
+      "legend": {
+        "columns": 2,
+        "labelLimit": 145
+      }
+    },
+    "tooltip": [
+      {
+        "field": "sport",
+        "type": "nominal",
+        "title": "Sport"
+      },
+      {
+        "field": "age_group",
+        "type": "nominal",
+        "title": "Age group"
+      },
+      {
+        "field": "rate",
+        "type": "quantitative",
+        "title": "Participation (%)",
+        "format": ".1f"
+      }
+    ]
+  }
+}

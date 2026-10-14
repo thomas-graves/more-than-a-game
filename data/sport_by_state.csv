@@ -1,0 +1,81 @@
+sport,state,code,rate,estimated_participants,longitude,latitude,data_status
+Football / soccer,New South Wales,NSW,4.4,302720,147.1,-32.3,Synthetic beta data
+Football / soccer,Victoria,VIC,4.6,257600,144.2,-36.6,Synthetic beta data
+Football / soccer,Queensland,QLD,3.5,159600,144.6,-22.0,Synthetic beta data
+Football / soccer,South Australia,SA,4.0,60800,134.8,-30.0,Synthetic beta data
+Football / soccer,Western Australia,WA,3.9,93600,122.4,-25.0,Synthetic beta data
+Football / soccer,Tasmania,TAS,3.9,18096,146.7,-42.0,Synthetic beta data
+Football / soccer,Northern Territory,NT,3.3,7128,133.4,-19.6,Synthetic beta data
+Football / soccer,Australian Capital Territory,ACT,5.6,21952,149.1,-35.5,Synthetic beta data
+Basketball,New South Wales,NSW,2.9,199520,147.1,-32.3,Synthetic beta data
+Basketball,Victoria,VIC,3.2,179200,144.2,-36.6,Synthetic beta data
+Basketball,Queensland,QLD,2.8,127680,144.6,-22.0,Synthetic beta data
+Basketball,South Australia,SA,3.1,47120,134.8,-30.0,Synthetic beta data
+Basketball,Western Australia,WA,3.1,74400,122.4,-25.0,Synthetic beta data
+Basketball,Tasmania,TAS,3.1,14384,146.7,-42.0,Synthetic beta data
+Basketball,Northern Territory,NT,2.6,5616,133.4,-19.6,Synthetic beta data
+Basketball,Australian Capital Territory,ACT,3.5,13720,149.1,-35.5,Synthetic beta data
+Tennis,New South Wales,NSW,2.6,178880,147.1,-32.3,Synthetic beta data
+Tennis,Victoria,VIC,2.9,162400,144.2,-36.6,Synthetic beta data
+Tennis,Queensland,QLD,2.5,114000,144.6,-22.0,Synthetic beta data
+Tennis,South Australia,SA,2.8,42560,134.8,-30.0,Synthetic beta data
+Tennis,Western Australia,WA,2.8,67200,122.4,-25.0,Synthetic beta data
+Tennis,Tasmania,TAS,2.7,12528,146.7,-42.0,Synthetic beta data
+Tennis,Northern Territory,NT,2.3,4968,133.4,-19.6,Synthetic beta data
+Tennis,Australian Capital Territory,ACT,3.2,12544,149.1,-35.5,Synthetic beta data
+Golf,New South Wales,NSW,2.5,172000,147.1,-32.3,Synthetic beta data
+Golf,Victoria,VIC,2.8,156800,144.2,-36.6,Synthetic beta data
+Golf,Queensland,QLD,2.4,109440,144.6,-22.0,Synthetic beta data
+Golf,South Australia,SA,2.7,41040,134.8,-30.0,Synthetic beta data
+Golf,Western Australia,WA,2.7,64800,122.4,-25.0,Synthetic beta data
+Golf,Tasmania,TAS,2.6,12064,146.7,-42.0,Synthetic beta data
+Golf,Northern Territory,NT,2.2,4752,133.4,-19.6,Synthetic beta data
+Golf,Australian Capital Territory,ACT,3.0,11760,149.1,-35.5,Synthetic beta data
+Cricket,New South Wales,NSW,2.0,137600,147.1,-32.3,Synthetic beta data
+Cricket,Victoria,VIC,2.3,128800,144.2,-36.6,Synthetic beta data
+Cricket,Queensland,QLD,2.0,91200,144.6,-22.0,Synthetic beta data
+Cricket,South Australia,SA,2.2,33440,134.8,-30.0,Synthetic beta data
+Cricket,Western Australia,WA,2.2,52800,122.4,-25.0,Synthetic beta data
+Cricket,Tasmania,TAS,2.1,9744,146.7,-42.0,Synthetic beta data
+Cricket,Northern Territory,NT,1.8,3888,133.4,-19.6,Synthetic beta data
+Cricket,Australian Capital Territory,ACT,2.5,9800,149.1,-35.5,Synthetic beta data
+Australian football,New South Wales,NSW,0.7,48160,147.1,-32.3,Synthetic beta data
+Australian football,Victoria,VIC,4.5,252000,144.2,-36.6,Synthetic beta data
+Australian football,Queensland,QLD,1.1,50160,144.6,-22.0,Synthetic beta data
+Australian football,South Australia,SA,4.0,60800,134.8,-30.0,Synthetic beta data
+Australian football,Western Australia,WA,3.5,84000,122.4,-25.0,Synthetic beta data
+Australian football,Tasmania,TAS,3.7,17168,146.7,-42.0,Synthetic beta data
+Australian football,Northern Territory,NT,1.7,3672,133.4,-19.6,Synthetic beta data
+Australian football,Australian Capital Territory,ACT,2.3,9016,149.1,-35.5,Synthetic beta data
+Netball,New South Wales,NSW,1.7,116960,147.1,-32.3,Synthetic beta data
+Netball,Victoria,VIC,2.5,140000,144.2,-36.6,Synthetic beta data
+Netball,Queensland,QLD,1.7,77520,144.6,-22.0,Synthetic beta data
+Netball,South Australia,SA,2.5,38000,134.8,-30.0,Synthetic beta data
+Netball,Western Australia,WA,1.9,45600,122.4,-25.0,Synthetic beta data
+Netball,Tasmania,TAS,2.2,10208,146.7,-42.0,Synthetic beta data
+Netball,Northern Territory,NT,1.6,3456,133.4,-19.6,Synthetic beta data
+Netball,Australian Capital Territory,ACT,2.1,8232,149.1,-35.5,Synthetic beta data
+Swimming,New South Wales,NSW,1.5,103200,147.1,-32.3,Synthetic beta data
+Swimming,Victoria,VIC,1.7,95200,144.2,-36.6,Synthetic beta data
+Swimming,Queensland,QLD,1.5,68400,144.6,-22.0,Synthetic beta data
+Swimming,South Australia,SA,1.7,25840,134.8,-30.0,Synthetic beta data
+Swimming,Western Australia,WA,1.7,40800,122.4,-25.0,Synthetic beta data
+Swimming,Tasmania,TAS,1.6,7424,146.7,-42.0,Synthetic beta data
+Swimming,Northern Territory,NT,1.4,3024,133.4,-19.6,Synthetic beta data
+Swimming,Australian Capital Territory,ACT,1.9,7448,149.1,-35.5,Synthetic beta data
+Rugby league,New South Wales,NSW,1.8,123840,147.1,-32.3,Synthetic beta data
+Rugby league,Victoria,VIC,0.3,16800,144.2,-36.6,Synthetic beta data
+Rugby league,Queensland,QLD,2.0,91200,144.6,-22.0,Synthetic beta data
+Rugby league,South Australia,SA,0.2,3040,134.8,-30.0,Synthetic beta data
+Rugby league,Western Australia,WA,0.4,9600,122.4,-25.0,Synthetic beta data
+Rugby league,Tasmania,TAS,0.2,928,146.7,-42.0,Synthetic beta data
+Rugby league,Northern Territory,NT,0.8,1728,133.4,-19.6,Synthetic beta data
+Rugby league,Australian Capital Territory,ACT,1.1,4312,149.1,-35.5,Synthetic beta data
+Volleyball,New South Wales,NSW,0.8,55040,147.1,-32.3,Synthetic beta data
+Volleyball,Victoria,VIC,0.9,50400,144.2,-36.6,Synthetic beta data
+Volleyball,Queensland,QLD,0.7,31920,144.6,-22.0,Synthetic beta data
+Volleyball,South Australia,SA,0.8,12160,134.8,-30.0,Synthetic beta data
+Volleyball,Western Australia,WA,0.8,19200,122.4,-25.0,Synthetic beta data
+Volleyball,Tasmania,TAS,0.8,3712,146.7,-42.0,Synthetic beta data
+Volleyball,Northern Territory,NT,0.7,1512,133.4,-19.6,Synthetic beta data
+Volleyball,Australian Capital Territory,ACT,0.9,3528,149.1,-35.5,Synthetic beta data

@@ -1,0 +1,21 @@
+sport,cohort,rate,estimated_participants,data_status
+Football / soccer,Adults (15+),3.8,837216,Synthetic beta data
+Basketball,Adults (15+),3.0,660960,Synthetic beta data
+Tennis,Adults (15+),2.7,594864,Synthetic beta data
+Golf,Adults (15+),2.6,572832,Synthetic beta data
+Cricket,Adults (15+),2.1,462672,Synthetic beta data
+Australian football,Adults (15+),2.0,440640,Synthetic beta data
+Netball,Adults (15+),1.8,396576,Synthetic beta data
+Swimming,Adults (15+),1.6,352512,Synthetic beta data
+Rugby league,Adults (15+),0.9,198288,Synthetic beta data
+Volleyball,Adults (15+),0.8,176256,Synthetic beta data
+Football / soccer,Children (0-14),13.2,686400,Synthetic beta data
+Basketball,Children (0-14),9.6,499200,Synthetic beta data
+Tennis,Children (0-14),7.5,390000,Synthetic beta data
+Golf,Children (0-14),0.8,41600,Synthetic beta data
+Cricket,Children (0-14),5.9,306800,Synthetic beta data
+Australian football,Children (0-14),8.4,436800,Synthetic beta data
+Netball,Children (0-14),6.7,348400,Synthetic beta data
+Swimming,Children (0-14),12.1,629200,Synthetic beta data
+Rugby league,Children (0-14),2.9,150800,Synthetic beta data
+Volleyball,Children (0-14),1.9,98800,Synthetic beta data

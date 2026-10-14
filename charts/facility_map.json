@@ -1,0 +1,239 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Interactive view of participation, places or volunteering in Australian community sport.",
+  "width": "container",
+  "height": 430,
+  "background": "transparent",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "config": {
+    "font": "DM Sans",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 500,
+      "labelColor": "#56645d",
+      "titleColor": "#56645d",
+      "domain": false,
+      "tickColor": "#d9dfd7",
+      "gridColor": "#e5e8df",
+      "labelPadding": 8,
+      "titlePadding": 14
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "title": null,
+      "orient": "bottom",
+      "labelLimit": 190
+    },
+    "range": {
+      "category": [
+        "#216052",
+        "#c38b32",
+        "#80618c",
+        "#9fbc54",
+        "#6e98ac",
+        "#b37565"
+      ]
+    }
+  },
+  "usermeta": {
+    "data_status": "synthetic",
+    "beta": true
+  },
+  "projection": {
+    "type": "mercator"
+  },
+  "params": [
+    {
+      "name": "facilitySport",
+      "value": "All sports",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All sports",
+          "Football / soccer",
+          "Australian football",
+          "Cricket",
+          "Netball",
+          "Tennis",
+          "Basketball"
+        ],
+        "name": "Sport: "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "data/victoria.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e6eadf",
+        "stroke": "#cdd7c7",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "data": {
+        "url": "data/victoria_facilities.csv",
+        "format": {
+          "type": "csv"
+        }
+      },
+      "transform": [
+        {
+          "filter": "facilitySport === 'All sports' || datum.sport === facilitySport"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 30,
+        "opacity": 0.65,
+        "stroke": "white",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative",
+          "title": null
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative",
+          "title": null
+        },
+        "color": {
+          "field": "sport",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              "Football / soccer",
+              "Australian football",
+              "Cricket",
+              "Netball",
+              "Tennis",
+              "Basketball"
+            ],
+            "range": [
+              "#216052",
+              "#c38b32",
+              "#80618c",
+              "#9aaf50",
+              "#6c92a2",
+              "#b36c5d"
+            ]
+          },
+          "legend": {
+            "columns": 2,
+            "symbolSize": 75
+          }
+        },
+        "tooltip": [
+          {
+            "field": "facility",
+            "type": "nominal",
+            "title": "Facility"
+          },
+          {
+            "field": "locality",
+            "type": "nominal",
+            "title": "Nearby town / city"
+          },
+          {
+            "field": "sport",
+            "type": "nominal",
+            "title": "Sport"
+          },
+          {
+            "field": "surfaces",
+            "type": "quantitative",
+            "title": "Playing surfaces",
+            "format": ".0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "name": "Melbourne",
+            "longitude": 144.96,
+            "latitude": -37.81
+          },
+          {
+            "name": "Geelong",
+            "longitude": 144.36,
+            "latitude": -38.15
+          },
+          {
+            "name": "Ballarat",
+            "longitude": 143.85,
+            "latitude": -37.56
+          },
+          {
+            "name": "Bendigo",
+            "longitude": 144.28,
+            "latitude": -36.76
+          },
+          {
+            "name": "Shepparton",
+            "longitude": 145.4,
+            "latitude": -36.38
+          },
+          {
+            "name": "Wangaratta",
+            "longitude": 146.32,
+            "latitude": -36.36
+          },
+          {
+            "name": "Traralgon",
+            "longitude": 146.53,
+            "latitude": -38.19
+          },
+          {
+            "name": "Mildura",
+            "longitude": 142.16,
+            "latitude": -34.19
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "dy": -10,
+        "fontSize": 10,
+        "color": "#56645d"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative",
+          "title": null
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative",
+          "title": null
+        },
+        "text": {
+          "field": "name",
+          "type": "nominal",
+          "title": null
+        }
+      }
+    }
+  ]
+}

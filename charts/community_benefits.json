@@ -1,0 +1,178 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Interactive view of participation, places or volunteering in Australian community sport.",
+  "width": "container",
+  "height": 270,
+  "background": "transparent",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "config": {
+    "font": "DM Sans",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 500,
+      "labelColor": "#56645d",
+      "titleColor": "#56645d",
+      "domain": false,
+      "tickColor": "#d9dfd7",
+      "gridColor": "#e5e8df",
+      "labelPadding": 8,
+      "titlePadding": 14
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "title": null,
+      "orient": "bottom",
+      "labelLimit": 190
+    },
+    "range": {
+      "category": [
+        "#216052",
+        "#c38b32",
+        "#80618c",
+        "#9fbc54",
+        "#6e98ac",
+        "#b37565"
+      ]
+    }
+  },
+  "usermeta": {
+    "data_status": "synthetic",
+    "beta": true
+  },
+  "data": {
+    "url": "data/community_perceptions.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "height": {
+          "band": 0.65
+        }
+      },
+      "encoding": {
+        "y": {
+          "field": "statement",
+          "type": "nominal",
+          "title": null,
+          "sort": [
+            "Strengthens communities",
+            "Supports wellbeing",
+            "Creates a sense of belonging",
+            "Welcomes different backgrounds",
+            "Values its volunteers"
+          ],
+          "axis": {
+            "labelLimit": 195,
+            "ticks": false
+          }
+        },
+        "x": {
+          "field": "start",
+          "type": "quantitative",
+          "title": "Share of responses (%)",
+          "scale": {
+            "domain": [
+              -40,
+              100
+            ]
+          },
+          "axis": {
+            "values": [
+              -40,
+              -20,
+              0,
+              20,
+              40,
+              60,
+              80,
+              100
+            ],
+            "labelExpr": "abs(datum.value) + '%'"
+          }
+        },
+        "x2": {
+          "field": "end"
+        },
+        "color": {
+          "field": "response",
+          "type": "nominal",
+          "title": null,
+          "sort": [
+            "Strongly disagree",
+            "Disagree",
+            "Neutral",
+            "Agree",
+            "Strongly agree"
+          ],
+          "scale": {
+            "domain": [
+              "Strongly disagree",
+              "Disagree",
+              "Neutral",
+              "Agree",
+              "Strongly agree"
+            ],
+            "range": [
+              "#80618c",
+              "#b8a3be",
+              "#e3e4da",
+              "#8daf86",
+              "#216052"
+            ]
+          },
+          "legend": {
+            "columns": 3,
+            "labelLimit": 135,
+            "symbolType": "square"
+          }
+        },
+        "order": {
+          "field": "order",
+          "type": "quantitative",
+          "title": null
+        },
+        "tooltip": [
+          {
+            "field": "statement",
+            "type": "nominal",
+            "title": "Statement"
+          },
+          {
+            "field": "response",
+            "type": "nominal",
+            "title": "Response"
+          },
+          {
+            "field": "rate",
+            "type": "quantitative",
+            "title": "Responses (%)",
+            "format": ".0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#8b9589",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "datum": 0
+        }
+      }
+    }
+  ]
+}
